@@ -34,7 +34,7 @@ public class App {
 
         Pacient c = new Pacient(
             "Jose",
-            15, 
+            16, 
             "Jose@gmail.com", 
             "francês", 
             "masculino", 
