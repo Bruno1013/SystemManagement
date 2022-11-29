@@ -8,8 +8,7 @@ public class Pacient extends Person {
     private String cuidadosEspeciais;
     protected ArrayList<LocalDateTime> consultas;
    
-    public Pacient(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital,
-            Localidade localidade, String doencas, String prescricoes, String alergias, String cuidadosEspeciais) {
+    public Pacient(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital,Localidade localidade, String doencas, String prescricoes, String alergias, String cuidadosEspeciais) {
         super(nome, idade, email, nacionalidade, sexo, hospital, localidade);
         this.doencas = doencas;
         this.prescricoes = prescricoes;
@@ -51,10 +50,26 @@ public class Pacient extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "Pacient:doencas=" + doencas + ", prescricoes=" + prescricoes + ", alergias=" + alergias
-                + ", cuidadosEspeciais=" + cuidadosEspeciais + ", consultas=" + consultas;
+        return "\n\n" + super.toString() + "Doenças = " + doencas + ", \nPrescrições=" + prescricoes + ", \nAlergias=" + alergias
+                + ", \nCuidados Especiais=" + cuidadosEspeciais + ", \nConsultas=" + consultas;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public void print(){
+        super.print();
+        System.out.println("Doencas: " + doencas + ", prescricoes: " + prescricoes + ", alergias: " + alergias
+        + ", cuidadosEspeciais: " + cuidadosEspeciais + ", consultas: " + consultas);
+    }
 
     
 }

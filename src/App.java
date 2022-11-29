@@ -12,7 +12,7 @@ public class App {
             "Diogo@gmail.com", 
             "Portuguesa", 
             "Mascunlino", 
-            santoAntonio, 
+            saoJoao, 
             new Localidade("Portugal", "Porto", 4050120, 2, "Cedofeita"), 
             "Neurologia", 
             2, 
@@ -39,7 +39,7 @@ public class App {
             "francês", 
             "masculino", 
             santoAntonio, 
-            "Gaia",
+            new Localidade("Portugal", "Porto", 4050120, 2, "Cedofeita"),
             "nenhuma",
             "nenhuma",
             "nenhuma",
@@ -48,10 +48,16 @@ public class App {
         Person d = (Person)a;
         
         a.consultas.add(LocalDateTime.of(1990, Month.FEBRUARY, 20, 12, 30));
-        a.consultas.add(LocalDateTime.of(1990, Month.FEBRUARY, 20, 12, 30));
+        a.consultas.add(LocalDateTime.of(2015, Month.FEBRUARY, 15, 9, 15));
 
-        
-        a.setConsulta();
+        //Antes de adicionar consulta
         System.out.println(a);
+        
+        System.out.println("\n\n(Exemplo de método para introduzir nova consulta)");
+        a.setConsulta(c);
+        
+        //depois de adicionar consulta
+        System.out.println(a);
+        System.out.println(c);
     }
 }

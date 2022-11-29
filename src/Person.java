@@ -10,8 +10,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital,
-            Localidade localidade) {
+    public Person(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital, Localidade localidade) {
         this.nome = nome;
         this.idade = idade;
         this.email = email;
@@ -20,8 +19,6 @@ public abstract class Person {
         this.hospital = hospital;
         this.localidade = localidade;
     }
-    
-    
 
     public String getNome() {
         return nome;
@@ -68,11 +65,24 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person: \nNome = " + nome + ", \nIdade = " + idade + ", \nEmail = " + email + ", \nNacionalidade=" + nacionalidade
+        return "\nNome = " + nome + ", \nIdade = " + idade + ", \nEmail = " + email + ", \nNacionalidade = " + nacionalidade
                 + ", \nSexo = " + sexo + "\n" + hospital + ",\n" + localidade;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public void print(){
+        System.out.println("Nome: " + nome + ", \nIdade: " + idade + ", \nEmail: " + email + ", \nNacionalidade: " + nacionalidade
+        + ", \nSexo: " + sexo + "\n" + hospital + ",\n" + localidade);
+    }
 
     
     

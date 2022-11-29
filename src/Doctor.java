@@ -1,5 +1,4 @@
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,8 +11,7 @@ public class Doctor extends Person {
     
     Scanner scanner = new Scanner(System.in);
 
-    public Doctor(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital,
-            Localidade localidade, String especialidade, int numFuncionario, int anosServico) {
+    public Doctor(String nome, int idade, String email, String nacionalidade, String sexo, Hospital hospital,Localidade localidade, String especialidade, int numFuncionario, int anosServico) {
         super(nome, idade, email, nacionalidade, sexo, hospital, localidade);
         this.especialidade = especialidade;
         this.numFuncionario = numFuncionario;
@@ -43,20 +41,31 @@ public class Doctor extends Person {
         this.anosServico = anosServico;
     }
 
-    private void setConsulta(Pacient pacient){
-        System.out.println("Indique o ano da consulta:");
+    @Override
+    public String toString() {
+        return "\n\n" + super.toString() + "\nEspecialidade = " + especialidade + ", \nNúmero de Funcionario = " + numFuncionario 
+        + ", \nAnos de serviço = "+ anosServico + ", \nConsultas = " + consultas;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    protected void setConsulta(Pacient pacient){
+        System.out.print("Indique o ano da consulta:");
         int ano = scanner.nextInt();
 
-        System.out.println("Indique o mês da consulta:");
+        System.out.print("Indique o mês da consulta:");
         int mes = scanner.nextInt();
         
-        System.out.println("Indique o dia da consulta:");
+        System.out.print("Indique o dia da consulta:");
         int dia = scanner.nextInt();
         
-        System.out.println("Indique a hora da consulta:");
+        System.out.print("Indique a hora da consulta:");
         int hora = scanner.nextInt();
 
-        System.out.println("Indique o minuto da consulta:");
+        System.out.print("Indique o minuto da consulta:");
         int minuto = scanner.nextInt();
 
         consultas.add(LocalDateTime.of(ano, mes, dia, hora, minuto));
@@ -64,8 +73,14 @@ public class Doctor extends Person {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "\nEspecialidade = " + especialidade + ", \nNúmero de Funcionario = " + numFuncionario 
-        + ", \nAnos de serviço = "+ anosServico + ", \nConsultas = " + consultas;
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public void print(){
+        super.print();
+        System.out.println("\nEspecialidade: " + especialidade + ", \nNúmero de Funcionario: " + numFuncionario 
+        + ", \nAnos de serviço: "+ anosServico + ", \nConsultas: " + consultas);
     }
 }
